@@ -11,7 +11,7 @@ Instead of brute-force empirical testing, this project uses the Materials Projec
 2. **Hardware Constraints:** Targeting base elements (e.g., Al, Cu, Ni, Fe) that undergo liquid phase dissolution below **1300°C**. This directly aligns with the operational limits of a custom 2500W ZVS induction heater used for physical casting.
 
 ## Crystallographic Validation (VESTA)
-*(Insert your VESTA Al2FeNi visualization here)*  
+![VESTA](Vesta-visualization.png) 
 *Figure 1: Crystallographic visualization of the Al2FeNi system showcasing intense lattice distortion and hybridization of d-orbitals, which acts as a quantum barrier against high hydrostatic pressure and deep-sea corrosion. Copyright © 2026 Auri Labs. All Rights Reserved.*
 
 ## Next Steps
