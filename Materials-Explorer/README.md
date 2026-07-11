@@ -1,64 +1,38 @@
-# 🌊 Auri Labs: Deep-Sea HEA Explorer (v1.0)
+# Auri Labs: Deep-Sea High-Entropy Alloy (HEA) Explorer 🌊
+![Program GUI](Before-Searching.png)
+> **Note on Intellectual Property:** The source code for the proprietary Python API pipeline is kept private to protect Auri Labs' trade secrets. This repository serves as a technical whitepaper outlining the methodology, physics, and validation steps of the project.
 
-(Screenshot of the Auri Labs Materials Explorer GUI in action, mining stable thermodynamic phases).
+## Project Overview
+A computational materials science pipeline designed to discover and filter thermodynamically stable, low-melting-point eutectic High-Entropy Alloys (HEAs) for extreme deep-sea environments. Developed in parallel with ongoing flexible Thermoelectric Generator (TEG) research, this project bridges the gap between big data materials informatics and physical at-home laboratory synthesis.
 
-## 🔬 Overview
+## Methodology & Synthesis Constraints
+Instead of brute-force empirical testing, this project uses the Materials Project API to screen millions of combinations based on strict physical constraints:
+1. **Thermodynamic Stability:** Filtering structures with an Energy Above Hull of `< 0.05 eV/atom`.
+2. **Hardware Constraints:** Targeting base elements (e.g., Al, Cu, Ni, Fe) that undergo liquid phase dissolution below **1300°C**. This directly aligns with the operational limits of a custom 2500W ZVS induction heater used for physical casting.
 
-Auri-DeepSea-HEA-Explorer is a custom computational materials science tool developed to accelerate the discovery of High-Entropy Alloys (HEAs) specifically designed for extreme marine environments (Deep-Sea Mining, ROVs, and Submarine components).
+## Crystallographic Validation (VESTA)
+*(Insert your VESTA Al2FeNi visualization here)*  
+*Figure 1: Crystallographic visualization of the Al2FeNi system showcasing intense lattice distortion and hybridization of d-orbitals, which acts as a quantum barrier against high hydrostatic pressure and deep-sea corrosion. Copyright © 2026 Auri Labs. All Rights Reserved.*
 
-Instead of relying on costly and time-consuming trial-and-error metallurgy, this Python-based application leverages the Materials Project REST API (mp-api) to mine thousands of elemental combinations, filtering for thermodynamic stability, low melting points, and theoretical corrosion resistance.
+## Next Steps
+1. **Simulation:** Importing crystallographic boundary data into **COMSOL Multiphysics** for structural and acoustic interaction testing under 50 MPa hydrostatic pressure.
+2. **Physical Synthesis:** Physical casting of the selected alloys inside an Argon-shielded graphite crucible, followed by precipitation hardening in a custom thermal aging station.
 
-## ⚙️ The Engineering Challenge & Strategy
+---
+---
 
-Standard HEA designs for extreme environments often rely on refractory metals like Molybdenum (Mo), Tungsten (W), or Tantalum (Ta), which have melting points exceeding $2600^\circ\text{C}$.
+# Türkçe Teknik Özet (Turkish Overview)
 
-The Hardware Constraint: My current home-laboratory setup utilizes a 2500W Zero Voltage Switching (ZVS) induction heater with a practical crucible limit of approximately $1300^\circ\text{C}$.
+> **Fikri Mülkiyet Notu:** Auri Labs ticari sırlarını korumak amacıyla Python API altyapısının kaynak kodu gizli tutulmaktadır. Bu depo, projenin metodolojisini, fiziksel altyapısını ve doğrulama adımlarını sunan bir teknik izahname niteliğindedir.
 
-The Auri Labs Solution: To bypass this limitation while maintaining deep-sea integrity, this explorer focuses on liquid-phase dissolution and eutectic principles. We prioritize elements like:
+## Proje Özeti
+Aşırı basınçlı derin deniz ortamları için termodinamik olarak stabil ve düşük erime noktalı Yüksek Entropili Alaşımlar (HEA) keşfetmek amacıyla tasarlanmış hesaplamalı malzeme bilimi projesidir. Esnek Termoelektrik Jeneratör (TEG) AR-GE çalışmalarıyla paralel yürütülen bu proje, büyük veri analizi ile fiziksel atölye üretimini bir araya getirmektedir.
 
-Aluminum (Al) & Copper (Cu): Low melting points ($660^\circ\text{C}$ and $1085^\circ\text{C}$) to form the liquid matrix, providing immense biofouling and chloride-pitting resistance via passivation layers.
+## Metodoloji ve Üretim Kısıtlamaları
+Deneme-yanılma yöntemleri yerine, Materials Project API kullanılarak aşağıdaki kısıtlamalara göre veri madenciliği yapılmıştır:
+1. **Termodinamik Stabilite:** Hull enerjisi `< 0.05 eV/atom` olan yapıların filtrelenmesi.
+2. **Donanım Kısıtlamaları:** Maksimum **1300°C**'de sıvı fazda çözünme (liquid phase dissolution) gerçekleştirebilecek elementlerin (Al, Cu, Ni, Fe) seçilmesi. Bu sıcaklık sınırı, fiziksel sentezde kullanılacak olan 2500W ZVS indüksiyon fırınının kapasitesine göre özel olarak belirlenmiştir.
 
-Nickel (Ni), Iron (Fe), Zinc (Zn): Dissolved into the matrix to induce severe lattice distortion (the core mechanism of HEAs), turning the alloy into a high-strength solid solution capable of withstanding $5000$ meters of hydrostatic pressure (~$50$ MPa).
-
-## 🚀 Features
-
-CustomTkinter GUI: A sleek, dark-mode user interface for easy parameter input.
-
-Automated Combinatorics: Automatically generates 3, 4, and 5-element chemical systems (chemsys) based on user input.
-
-Thermodynamic Filtering: Queries the Materials Project database to return only stable or highly-viable metastable structures (energy_above_hull < 0.05 eV/atom).
-
-Formation Energy Sorting: Ranks candidates by how aggressively the atoms "want" to bond.
-
-## 🛠️ Installation & Usage
-
-Clone the repository:
-git clone https://github.com/YourUsername/Auri-DeepSea-HEA-Explorer.git
-cd Auri-DeepSea-HEA-Explorer
-
-Install the required dependencies:
-pip install mp-api customtkinter python-dotenv
-
-Set up your API Key:
-Create a free account on Materials Project.
-Get your API key and create a .env file in the root directory.
-Add the following line to the .env file: MP_API_KEY="your_api_key_here"
-
-Run the application:
-python auri_materials_explorer.py
-
-🧪 Next Steps (The Auri Labs Roadmap)
-
-- Phase 1 (Current): Data mining and computational discovery (API + GUI).
-
-- Phase 2: Visualizing the champion alloys (e.g., $Al_2FeNi$) using VESTA to analyze lattice distortion and quantum bonding.
-
-- Phase 3: Importing mechanical parameters into COMSOL Multiphysics to simulate macroscopic hydrostatic stress on ROV components.
-
-- Phase 4: Physical synthesis using the 2500W ZVS induction heater and the Auri-Aging Station v1 for precipitation hardening.
-
-Built with passion for Deep-Tech, Materials Informatics, and Ocean Engineering.
-
-
-## Türkçe Özet
-Bu proje, yüksek erime noktalı metallere ihtiyaç duymadan, yerel atölye imkanlarıyla (ZVS indüksiyon fırını) üretilebilecek derin deniz alaşımları geliştirmek amacıyla başlatılmıştır. Materials Project API'sini kullanarak 1300°C altında stabil faz sergileyen Al-Cu-Ni-Fe sistemli Yüksek Entropili Alaşımlar (HEA) tespit edilmiştir. Proje, TEG (Termoelektrik Jeneratör) çalışmalarımın yanında paralel bir AR-GE faaliyeti olarak yürütülmektedir.
+## Sonraki Adımlar
+1. **Simülasyon:** VESTA'dan elde edilen atomik kafes verilerinin **COMSOL Multiphysics** ortamına aktarılarak 50 MPa hidrostatik basınç altında yapısal testlerinin yapılması.
+2. **Fiziksel Üretim:** Seçilen alaşım adaylarının Argon korumalı grafit potada ZVS fırını ile dökülmesi ve özel tasarım termal yaşlandırma istasyonunda (aging station) sertleştirilmesi.
